@@ -1,4 +1,5 @@
-const checkmrk = '<i class="fas fa-check"></i>';
+const checkmrk = '<div class="checkmark"></div>';
+const checkmarkIcon = '<i class="fas fa-check"></i>';
 const remove = '<i class="far fa-trash-alt"></i>';
 const add = '<i class="fas fa-plus-circle"></i>';
 
@@ -38,7 +39,7 @@ class CreateTodo {
     CreateTodoList() {
         const input = document.createElement('input');
         input.classList.add('input');
-        input.placeholder = 'Enter Todo'
+        input.placeholder = 'Enter Todo';
         const btn = document.createElement('button');
 
         btn.innerHTML = add;
@@ -54,7 +55,11 @@ class CreateTodo {
         this.todos.forEach(element => {
             const newTodo = document.createElement('div');
             newTodo.classList.add('todo');
-            newTodo.innerHTML = `<span>${checkmrk}${element.task}</span>${remove}`;
+            const todoInfo = document.createElement('span');
+            todoInfo.classList.add('todo-info');
+            todoInfo.innerHTML = `${checkmrk}${element.task}`;
+            newTodo.appendChild(todoInfo);
+            newTodo.innerHTML += `${remove}`;
             this.list.appendChild(newTodo);
         });
     }
@@ -69,26 +74,34 @@ class CreateTodo {
     }
     setupListEventListener() {
         this.list.addEventListener('click' , e => {
-            console.log(e.target);
-            if(e.target.classList.contains('fas fa-check')) {
-                console.log('working')
+            if(e.target.classList.contains('checkmark')){
+                if(!e.target.parentElement.classList.contains('done')) {
+                    e.target.parentElement.classList.toggle('done');
+                    e.target.innerHTML = checkmarkIcon;
+
+                } else if (e.target.parentElement.classList.contains('done')){
+                    e.target.parentElement.classList.toggle('done');
+                    e.target.innerHTML = '';
+                }
+            }
+            if(e.target.classList.contains('fa-check')){
+                    e.target.parentElement.parentElement.classList.toggle('done');
+                    e.target.parentElement.innerHTML = '';
+            }
+            if(e.target.classList.contains('fa-trash-alt')){
+                this.list.removeChild(e.target.parentElement)
+    
             }
         })
     }
     addTodo(todo) {
         const newTodo = document.createElement('div');
-        newTodo.classList.add('todo');
-        newTodo.innerHTML = `<span>${checkmrk}${todo}</span>${remove}`;
-        this.list.appendChild(newTodo);
+            newTodo.classList.add('todo');
+            const todoInfo = document.createElement('span');
+            todoInfo.classList.add('todo-info');
+            todoInfo.innerHTML = `${checkmrk}${todo}`;
+            newTodo.appendChild(todoInfo);
+            newTodo.innerHTML += `${remove}`;
+            this.list.appendChild(newTodo);
     }
 }
-
-const todosDOM = document.querySelectorAll('.todo')
-
-console.log(todosDOM)
-
-const checkmarks = document.querySelectorAll('.fa-check').forEach(item => {
-    item.addEventListener('click', e => {
-        console.log(e.target);
-    })
-});

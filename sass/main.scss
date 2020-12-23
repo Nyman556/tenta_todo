@@ -50,13 +50,6 @@ body {
                         margin-right: 1em;
                     }
                 }
-                .fa-check {
-                    color: green;
-                    font-size: 0.8rem;
-                    border: 1px solid gray;
-                    border-radius: 100%;
-                    padding: 3px;
-                }
                 .fa-trash-alt {
                     color: red;
                 }
@@ -72,4 +65,27 @@ i {
     width: 2vw;
     font-size: 1.7rem;
     color: $btn;
+}
+
+.done {
+    color: green;
+}
+
+.checkmark {
+    width: 1.5vw;
+    max-height: 5vh;
+    border: 1px solid black;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    * {
+        margin-left: 15px;
+    }
+}
+
+.todo-info {
+    display: flex;
+    flex-direction: row;
 }
