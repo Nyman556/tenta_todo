@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap');
+
+
+$primary-color: #c7caca;
+$btn: #495057;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Andika New Basic', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    .todo-app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+        #input {
+            display: flex;
+            flex-direction: row;
+            .input {
+                width: 20vw;
+                padding: 1em;
+            }
+            * {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        .todo-list {
+            width: 23vw;
+            margin-top: 2em;
+            .todo {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                height: 6vh;
+                width: 100%;
+                border: 1px solid $primary-color;
+                padding: 1.5em 1em;
+                span {
+                    * {
+                        margin-right: 1em;
+                    }
+                }
+                .fa-check {
+                    color: green;
+                    font-size: 0.8rem;
+                    border: 1px solid gray;
+                    border-radius: 100%;
+                    padding: 3px;
+                }
+                .fa-trash-alt {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+i {
+    cursor: pointer;
+}
+.fa-plus-circle {
+    width: 2vw;
+    font-size: 1.7rem;
+    color: $btn;
+}
