@@ -79,7 +79,17 @@ body .todo-app .todo-list .todo {
   padding: 1.5em 1em;
 }
 
-body .todo-app .todo-list .todo span * {
+body .todo-app .todo-list .todo .todo-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+body .todo-app .todo-list .todo .todo-info * {
   margin-right: 1em;
 }
 
@@ -120,15 +130,5 @@ i {
 
 .checkmark * {
   margin-left: 15px;
-}
-
-.todo-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
 }
 /*# sourceMappingURL=main.css.map */

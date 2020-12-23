@@ -45,7 +45,9 @@ body {
                 width: 100%;
                 border: 1px solid $primary-color;
                 padding: 1.5em 1em;
-                span {
+                .todo-info {
+                    display: flex;
+                    flex-direction: row;
                     * {
                         margin-right: 1em;
                     }
@@ -83,9 +85,4 @@ i {
     * {
         margin-left: 15px;
     }
-}
-
-.todo-info {
-    display: flex;
-    flex-direction: row;
 }
